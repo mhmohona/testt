@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulok's Birthday Wish</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f9d423 0%, #ff4e50 100%);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease-in-out infinite;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      overflow-x: hidden;
+    }
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+    .container {
+      max-width: 650px;
+      width: 96%;
+      background: rgba(255,255,255,0.95);
+      margin: 2em 0 2em 0;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      padding: 2.5em 1.2em 2em 1.2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      font-family: 'Fredoka One', 'Pacifico', cursive;
+      color: #ff4e50;
+      font-size: 2.8em;
+      margin-bottom: 0.2em;
+      text-align: center;
+      text-shadow: 0 4px 16px rgba(255,78,80,0.18), 0 1px 0 #fff;
+      animation: bounceIn 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+      letter-spacing: 2px;
+    }
+    @keyframes bounceIn {
+      0% {transform: scale(0.7) translateY(-80px); opacity: 0;}
+      60% {transform: scale(1.1) translateY(20px); opacity: 1;}
+      80% {transform: scale(0.95) translateY(-10px);}
+      100% {transform: scale(1) translateY(0);}
+    }
+    .message {
+      font-size: 1.25em;
+      color: #333;
+      margin-bottom: 1.7em;
+      text-align: center;
+      font-family: 'Pacifico', cursive;
+      background: linear-gradient(90deg, #f9d423 0%, #ff4e50 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      animation: fadeIn 2s 0.5s both;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .video-wrapper {
+      width: 100%;
+      position: relative;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      margin-bottom: 1.5em;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px 0 rgba(63,69,81,0.18);
+      background: #fff;
+      animation: fadeIn 2s 1s both;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border: none;
+    }
+    .balloons {
+      position: absolute;
+      top: -60px;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      pointer-events: none;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      animation: fadeIn 1.5s 0.5s both;
+    }
+    .balloon {
+      width: 36px;
+      height: 48px;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      background: radial-gradient(circle at 60% 40%, #fff8, transparent 70%), #ff4e50;
+      box-shadow: 0 4px 12px #ff4e5055;
+      position: relative;
+      animation: float 3s ease-in-out infinite alternate;
+    }
+    .balloon:nth-child(2) { background: radial-gradient(circle at 60% 40%, #fff8, transparent 70%), #f9d423; animation-delay: 0.7s; }
+    .balloon:nth-child(3) { background: radial-gradient(circle at 60% 40%, #fff8, transparent 70%), #30cfd0; animation-delay: 1.2s; }
+    .balloon:nth-child(4) { background: radial-gradient(circle at 60% 40%, #fff8, transparent 70%), #a259c4; animation-delay: 1.7s; }
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(-18px) scale(1.05); }
+    }
+    .balloon::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -18px;
+      width: 2px;
+      height: 18px;
+      background: #aaa;
+      transform: translateX(-50%);
+      opacity: 0.5;
+    }
+    .confetti-canvas {
+      position: fixed;
+      pointer-events: none;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 10;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2em; }
+      .container { padding: 1em 0.5em; }
+      .balloons { gap: 10px; }
+      .balloon { width: 24px; height: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <canvas class="confetti-canvas"></canvas>
+  <div class="container">
+    <div class="balloons">
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+    </div>
+    <h1>Happy Birthday, Pulok! 🎉</h1>
+    <div class="message">
+      Wishing you a day filled with love, laughter, and all your favorite things. May this year bring you endless happiness and unforgettable memories!<br><br>
+      — With love, Mahfuza Humayra Mohona
+    </div>
+    <div class="video-wrapper">
+      <iframe loading="lazy" src="https://www.canva.com/design/DAGuK7zgBgg/MlRNkdM_of0YeEEY66w9xQ/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+    </div>
+  </div>
+  <script>
+    // Confetti effect (lightweight, no dependencies)
+    const canvas = document.querySelector('.confetti-canvas');
+    const ctx = canvas.getContext('2d');
+    let W = window.innerWidth, H = window.innerHeight;
+    canvas.width = W; canvas.height = H;
+    window.addEventListener('resize', () => {
+      W = window.innerWidth; H = window.innerHeight;
+      canvas.width = W; canvas.height = H;
+    });
+    const confettiColors = ['#ff4e50','#f9d423','#30cfd0','#a259c4','#fff'];
+    const confetti = Array.from({length: 120}, () => ({
+      x: Math.random()*W,
+      y: Math.random()*-H,
+      r: 6+Math.random()*8,
+      d: 2+Math.random()*2,
+      color: confettiColors[Math.floor(Math.random()*confettiColors.length)],
+      tilt: Math.random()*10-5,
+      tiltAngle: 0,
+      tiltAngleIncremental: (Math.random()*0.07)+.05
+    }));
+    function drawConfetti() {
+      ctx.clearRect(0,0,W,H);
+      confetti.forEach(c => {
+        ctx.beginPath();
+        ctx.lineWidth = c.r/2;
+        ctx.strokeStyle = c.color;
+        ctx.moveTo(c.x + c.tilt + c.r/3, c.y);
+        ctx.lineTo(c.x + c.tilt, c.y + c.r);
+        ctx.stroke();
+      });
+      updateConfetti();
+      requestAnimationFrame(drawConfetti);
+    }
+    function updateConfetti() {
+      confetti.forEach(c => {
+        c.y += c.d;
+        c.tiltAngle += c.tiltAngleIncremental;
+        c.tilt = Math.sin(c.tiltAngle) * 12;
+        if (c.y > H) {
+          c.x = Math.random()*W;
+          c.y = -10;
+        }
+      });
+    }
+    drawConfetti();
+  </script>
+</body>
+</html> 
