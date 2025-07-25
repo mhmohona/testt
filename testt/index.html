@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulok's Birthday Wish</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #f9d423 0%, #ff4e50 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .container {
+      max-width: 600px;
+      width: 95%;
+      background: rgba(255,255,255,0.95);
+      margin: 2em 0 2em 0;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      padding: 2em 1em 2em 1em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      color: #ff4e50;
+      font-size: 2.5em;
+      margin-bottom: 0.2em;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(255,78,80,0.10);
+    }
+    .message {
+      font-size: 1.2em;
+      color: #333;
+      margin-bottom: 1.5em;
+      text-align: center;
+    }
+    .video-wrapper {
+      width: 100%;
+      position: relative;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      margin-bottom: 1.5em;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16);
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border: none;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2em; }
+      .container { padding: 1em 0.5em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Happy Birthday, Pulok!</h1>
+    <div class="message">
+      Wishing you a day filled with love, laughter, and all your favorite things. May this year bring you endless happiness and unforgettable memories!<br><br>
+      — With love, Mahfuza Humayra Mohona
+    </div>
+    <div class="video-wrapper">
+      <iframe loading="lazy" src="https://www.canva.com/design/DAGuK7zgBgg/MlRNkdM_of0YeEEY66w9xQ/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+    </div>
+
+  </div>
+</body>
+</html> 
